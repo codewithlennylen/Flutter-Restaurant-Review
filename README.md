@@ -1,12 +1,19 @@
 # Flutter Restaurant Review App
 
-#
+## Plan
+
+- I have decided to build out shot 3 (Design Considerations Section).
+- It's dark theme as well as simplicity is quite enticing.
+- Post-a-Review Form as well as connection to the database can come later.
+- Shot 4 would be best for me but the layout is a little too complex for me for now.
 
 ## What I'll Learn
 
 1. Creating Cards in Flutter
 2. Building multiple paged apps in Flutter.
 3. Working with images in Flutter
+4. Firebase with Flutter
+5. Working with Forms in Flutter
 
 ## Design Considerations [Dribble.com](https://dribbble.com)
 
