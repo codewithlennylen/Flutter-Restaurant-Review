@@ -16,7 +16,15 @@ class MyApp extends StatelessWidget {
         //   title: Text("Apex Kitchen Reviews"),
         // ),
         body: Center(
-          child: RestaurantCard(),
+          child: ListView(
+            children: [
+              RestaurantCard(
+                  "WaJeff Kikwetu", 4.7, "https://dummyimage.com/250x250"),
+              RestaurantCard("Seasons", 4.4, "https://dummyimage.com/250x250"),
+              RestaurantCard(
+                  "Dee's Small Kitchen", 4.2, "https://dummyimage.com/250x250"),
+            ],
+          ),
         ),
         backgroundColor: Colors.grey[850],
       ),
@@ -29,7 +37,20 @@ class MyApp extends StatelessWidget {
 // ListView
 List restaurantCards = [];
 
+// ignore: must_be_immutable
 class RestaurantCard extends StatelessWidget {
+  String restaurantTitle = "";
+  double restaurantScore = 0.0;
+  String restaurantImage = "";
+
+  // Constructor
+  RestaurantCard(
+      String restaurantTitle, double restaurantScore, String restaurantImage) {
+    this.restaurantTitle = restaurantTitle;
+    this.restaurantScore = restaurantScore;
+    this.restaurantImage = restaurantImage;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -37,30 +58,31 @@ class RestaurantCard extends StatelessWidget {
       elevation: 8.0,
       child: Container(
         width: 300,
-        height: 300,
+        height: 325,
         child: Column(
           children: [
             // This Column Widget is for the Restaurant Title & Rating.
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("WaJeff Restaurant"),
-                Text("4.2 / 5 Stars"),
+                Text(this.restaurantTitle),
+                Text("$restaurantScore / 5 Stars"),
               ],
             ),
             SizedBox(
               height: 5,
             ),
             // This is the restaurant's profile image
-            Image.network("https://dummyimage.com/300x220"),
+            Image.network(this.restaurantImage),
             SizedBox(
               height: 10,
             ),
             // A button that takes you to a different page.
             Center(
               child: ElevatedButton(
-                onPressed: null,
+                onPressed: () {},
                 child: Text("Post a Review"),
+                
               ),
             )
           ],
