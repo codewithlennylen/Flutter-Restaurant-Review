@@ -34,8 +34,56 @@ class MyApp extends StatelessWidget {
 
 // * STRATEGY CHECK
 // I could create a list of RestaurantCard Objects that I could then display onto the homepage
-// ListView
-List restaurantCards = [];
+// I'll get back to this in the future
+//// List restaurantCards = [];
+
+class ViewRestaurant extends StatelessWidget {
+  // const ViewRestaurant({ Key? key }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Column(
+        children: [
+          Image.network("https://dummyimage.com/250x250"),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            
+            child: Center(
+              child: Column(
+                children: [
+                  Text("Restaurant Title"),
+                  Text("Restaurant Description"),
+                  Row(
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text("DETAILS"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text("MENU"),
+                      ),
+                      ElevatedButton(
+                        //* Move onto the previous screen/page (Route)
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                        child: Text("REVIEWS"),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
 // ignore: must_be_immutable
 class RestaurantCard extends StatelessWidget {
@@ -80,9 +128,14 @@ class RestaurantCard extends StatelessWidget {
             // A button that takes you to a different page.
             Center(
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  //* Move onto the next screen/page (Route)
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ViewRestaurant()));
+                },
                 child: Text("Post a Review"),
-                
               ),
             )
           ],
