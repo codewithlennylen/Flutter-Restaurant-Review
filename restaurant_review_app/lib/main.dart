@@ -43,39 +43,70 @@ class ViewRestaurant extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[400],
       body: Column(
         children: [
-          Image.network("https://dummyimage.com/250x250"),
+          Image.network("https://dummyimage.com/500x250"),
           SizedBox(
             height: 10,
           ),
-          Container(
-            
-            child: Center(
-              child: Column(
-                children: [
-                  Text("Restaurant Title"),
-                  Text("Restaurant Description"),
-                  Row(
-                    children: [
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text("DETAILS"),
+          Card(
+            color: Colors.grey[850],
+            elevation: 8.0,
+            child: Container(
+              child: Center(
+                child: Column(
+                  children: [
+                    Text(
+                      "Restaurant Title",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        letterSpacing: 2,
+                        fontWeight: FontWeight.bold,
                       ),
-                      ElevatedButton(
-                        onPressed: () {},
-                        child: Text("MENU"),
+                    ),
+                    Text(
+                      "Restaurant Description",
+                      style: TextStyle(
+                        color: Colors.grey[200],
+                        fontSize: 16,
+                        letterSpacing: 1,
+                        fontWeight: FontWeight.bold,
                       ),
-                      ElevatedButton(
-                        //* Move onto the previous screen/page (Route)
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                        child: Text("REVIEWS"),
-                      ),
-                    ],
-                  )
-                ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    //! Consider the Expanded Widget (avoid sizedBoxes all over the place)
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        ElevatedButton(
+                          //* Move back to the previous screen/page (Route)
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text("DETAILS"),
+                        ),
+                        ElevatedButton(
+                          //* Move back to the previous screen/page (Route)
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text("MENU"),
+                        ),
+                        ElevatedButton(
+                          //* Move back to the previous screen/page (Route)
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text("REVIEWS"),
+                        ),
+                      ],
+                    )
+                  ],
+                ),
               ),
             ),
           ),
